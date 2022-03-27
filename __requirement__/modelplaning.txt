@@ -1,0 +1,30 @@
+# realtor 
+## realtor
+name=models.charfield
+photo=models.imagefield
+email=models.emailfield
+description=models.textfields
+mobileNumber=models.charfield
+hire_date=models.datetimefield
+
+# listing
+##listing
+realtor=models.foreignkey()
+title=models.charfield
+description=models.textfields
+address=models.textfields
+city=models.charfield
+state=models.charfield
+zipcode=models.charfield
+price=models.intergerfield
+betroom=models.intergerfield
+bathrooom=models.intergerfield
+created=models.datetimefield
+
+# inquery
+## inquery
+listing=models.foreignkey()
+realtor=models.foreignkey
+name=models.charfield
+email=models.charfield
+phone=models.charfield
