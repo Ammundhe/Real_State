@@ -37,7 +37,7 @@
                     <div class="price-box d-flex">
                       <span class="price-a">{{house.property_status}} | $ {{house.price}}</span>
                     </div>
-                    <a href="#" class="link-a">Click here to view
+                    <a href="{% url 'Property' propertyId=house.id %}" class="link-a">Click here to view
                       <span class="ion-ios-arrow-forward"></span>
                     </a>
                   </div>
