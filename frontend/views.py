@@ -4,7 +4,7 @@ from django.views import View
 from listing.models import listing
 from realtor.models import realtor
 from inquery.models import inquery
-from .modelsForms import inqueryForm
+from .modelsForms import inqueryForm, contactform
 
 class HomePage(View):
     template_name="HomePage.html"
@@ -65,3 +65,27 @@ class Property(View):
             return redirect("Property", propertyId=propertyId)
         return redirect("Property", propertyId=propertyId)
         
+class Contact(View):
+    template_name="contact.html"
+    form_class=contactform
+    def get(self, request):
+        form=self.form_class()
+        context={
+            "form":form,
+        }
+        return render(request, self.template_name, context)
+    def post(self, request):
+        form=self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("Contact")
+
+class Agents(View):
+    template_name="agents.html"
+
+    def get(self, request):
+        agent=realtor.objects.all()
+        context={
+            "agent":agent
+        }
+        return render(request, self.template_name, context)

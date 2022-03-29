@@ -1,5 +1,5 @@
 from django.contrib import admin
-from inquery.models import inquery
+from inquery.models import inquery, Contactus
 
 
 class inqueryAdmin(admin.ModelAdmin):
@@ -9,3 +9,9 @@ class inqueryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(inquery, inqueryAdmin)
+
+class ContactusAdmin(admin.ModelAdmin):
+    list_display=["name", "email", "phone", "message"]
+
+admin.site.register(Contactus, ContactusAdmin)
+

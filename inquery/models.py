@@ -1,4 +1,3 @@
-import email
 from django.db import models
 from realtor.models import realtor
 from listing.models import listing
@@ -12,3 +11,13 @@ class inquery(models.Model):
 
     def __str__(self) -> str:
         return str(self.name)
+
+class Contactus(models.Model):
+    name=models.CharField(max_length=155)
+    email=models.EmailField()
+    phone=models.CharField(max_length=12)
+    message=models.TextField()
+
+    def __str__(self) -> str:
+        return str(self.name)
+    
